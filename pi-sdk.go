@@ -71,56 +71,6 @@ func NewPiNetworkSDK() (*PiNetworkSDK, error) {
 	return &pisdk, nil
 }
 
-/*
-func (t *PiNetworkSDK) ProcessInCompletedWithdraw(inCompletedWithdrawItems []*db.WalletWithdraw) error {
-	incompletePayments, err := t.getIncompletePayments()
-	if err != nil {
-		return err
-	}
-	for i := range incompletePayments {
-		payment := incompletePayments[i].(map[string]interface{})
-		metadata := payment["metadata"].(interface{})
-		wdID := metadata.(map[string]interface{})["reference"].(string)
-		exist := false
-		k := 0
-		for k = range inCompletedWithdrawItems {
-			if inCompletedWithdrawItems[k].WdID == wdID {
-				exist = true
-				break
-			}
-		}
-
-		if exist == false {
-			t.cancelPayment(payment["identifier"].(string))
-		} else {
-			if payment["transaction"] == nil {
-				txid, err := t.submitPayment(payment)
-				if err != nil {
-					inCompletedWithdrawItems[k].Status = constant.WALLET_WITHDRAW_STATUS_ERROR
-					t.cancelPayment(payment["identifier"].(string))
-					continue
-				}
-				err = t.completePayment(payment["identifier"].(string), txid)
-				if err != nil {
-					inCompletedWithdrawItems[k].Status = constant.WALLET_WITHDRAW_STATUS_ERROR
-					t.cancelPayment(payment["identifier"].(string))
-					continue
-				}
-				inCompletedWithdrawItems[k].Status = constant.WALLET_WITHDRAW_STATUS_COMPLETED
-			} else {
-				transaction := payment["transaction"].(map[string]interface{})
-				err = t.completePayment(payment["identifier"].(string), transaction["txid"].(string))
-				if err != nil {
-					inCompletedWithdrawItems[k].Status = constant.WALLET_WITHDRAW_STATUS_ERROR
-					t.cancelPayment(payment["identifier"].(string))
-					continue
-				}
-				inCompletedWithdrawItems[k].Status = constant.WALLET_WITHDRAW_STATUS_COMPLETED
-			}
-		}
-	}
-	return nil
-}*/
 
 func (t *PiNetworkSDK) LoadAccountDetails(secret string) error {
 	if !checkPrivateSeedValid(secret) {
