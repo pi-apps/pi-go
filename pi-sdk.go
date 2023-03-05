@@ -1,13 +1,10 @@
 package chain_sdk
 
-import (
-	"Open_IM/pkg/chain-sdk/pi-network/horizonclient"
-	"Open_IM/pkg/common/log"
+import (	
 	"fmt"
 	"github.com/stellar/go/txnbuild"
 	"strings"
 
-	http2 "Open_IM/pkg/common/http"
 	"encoding/json"
 	"errors"
 	"github.com/stellar/go/keypair"
