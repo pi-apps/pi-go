@@ -21,7 +21,7 @@ const (
 	PI_NETWORK_TEST_CHAIN_HOST = "https://api.testnet.minepi.com"
 	PI_NETWORK_PASSPHRASE      = "Pi Network"
 	PI_NETWORK_TEST_PASSPHRASE = "Pi Testnet"
-	PI_API_KEY                 = "whv5gb7m4gqiwdjxsxs2asxclwedl1cvs6v8ethrturaulqbgsxckblnf2pzjpv9"
+	PI_API_KEY                 = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 )
 
 type PiNetworkSDK struct {
